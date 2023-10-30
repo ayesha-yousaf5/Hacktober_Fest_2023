@@ -1,0 +1,27 @@
+class WeightCalculator:
+   def __init__(self, gender, height, weight):
+       self.gender = gender
+       self.height = height
+       self.weight = weight
+
+   def calculate_weight(self):
+       if self.gender == 'Male':
+           self.weight = (50 * self.height) - 55
+       elif self.gender == 'Female':
+           self.weight = (45.5 * self.height) - 43.5
+       else:
+           raise ValueError("Gender must be either 'Male' or 'Female'")
+
+       return self.weight
+
+
+def main():
+   gender = input("Enter your gender (Male/Female): ")
+   height = float(input("Enter your height in cm: "))
+   weight_calculator = WeightCalculator(gender, height, 0)
+   weight = weight_calculator.calculate_weight()
+   print(f"Your ideal weight is approximately {weight} kg.")
+
+
+if __name__ == "__main__":
+   main()
